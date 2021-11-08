@@ -16,3 +16,8 @@ apt-get install -y git
 
 apt-get install -y npm
 npm install hexo-cli -g
+
+# profile updates
+cat << EOF >> /root/.profile
+set -o vi
+EOF
