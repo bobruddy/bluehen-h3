@@ -7,5 +7,5 @@ docker build -t hexo_dev .
 
 ## To run
 ```
-docker run -ti --rm --name hexo_dev -v $PWD:/src:rw hexo_dev
+docker run -ti -p 4000:4000 --rm --name hexo_dev -v $PWD:/src:rw hexo_dev
 ```
