@@ -1,23 +1,22 @@
-export DEBIAN_FRONTEND=noninteractive
+#!/bin/sh
 
-
+# make dir for mounting local dir
 mkdir src
-apt-get update -y
-apt-get dist-upgrade -y
 
-# install tzdata now. if you let npm install as dependancy it prompts you
-# for information. this ensures it doesn't
-ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
-apt-get install -y tzdata
+# make sure packages upgraded
+apk update
+apk upgrade
 
 #install other packages
-apt-get install -y vim
-apt-get install -y git
+apk add vim
+apk add git
 
-apt-get install -y npm
+# install npm and hexo
+apk add npm
 npm install hexo-cli -g
 
+# clean out cache
+apk cache purge
+
 # profile updates
-cat << EOF >> /root/.profile
-set -o vi
-EOF
+echo set -o vi >> /root/.profile

@@ -1,4 +1,4 @@
-FROM ubuntu:rolling
+FROM alpine:latest
 COPY . /tmp
-RUN /bin/bash /tmp/install.sh
-CMD /bin/bash
+RUN /bin/sh /tmp/install.sh
+CMD /bin/sh -l
